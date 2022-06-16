@@ -5,17 +5,19 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather Dashboard</title>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="assets/css/style.css" />
 </head>
 <body>
-    <header class="app-header">
+    <header class="app-header text-center p-3">
         <h1 class="main-title">Weather Dashboard</h1>
     </header>
 
     <main>
         <section class="left-container">
-            <div class="search-container">
-                <h2>Search for a City:</h2>
+            <div class="search-container p-2">
+                <h2 class="p-2">Search for a City:</h2> 
                 <input type="text" id="city-input" placeholder="Los Angeles"/>
                 <button id="search-button">Search</button>
             </div>
@@ -35,7 +37,10 @@
     </main>
 
 
-
-<script src="assets/js/script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
+    <script src="assets/js/script.js"></script>
 </body>
 </html>
