@@ -3,7 +3,11 @@ var limit = 1;
 
 
 
-
+var searchBtn = document.getElementById("search-button");
+searchBtn.addEventListener("click", async function (event) {
+  var city = $("#city-input").val();
+  if (city == null || city.trim() === "")
+    return;  
   var url = `https://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=${limit}&appid=${weatherKey}`;
   var response = await fetch(url);
   var cityData = await response.json();
@@ -15,7 +19,7 @@ var limit = 1;
   await populateForecast(city, cityLat, cityLon);
   console.log(localStorage);
   
-
+});
 
 
 
