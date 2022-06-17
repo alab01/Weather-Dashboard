@@ -1,5 +1,6 @@
 var weatherKey = "3c71aebffae52dc748aa0c2b474d8d34";
 var limit = 1;
+localStorage.clear();
 
 
 
@@ -7,7 +8,7 @@ var searchBtn = document.getElementById("search-button");
 searchBtn.addEventListener("click", async function (event) {
   var city = $("#city-input").val();
   if (city == null || city.trim() === "")
-    return;  
+    return;
   var url = `https://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=${limit}&appid=${weatherKey}`;
   var response = await fetch(url);
   var cityData = await response.json();
@@ -19,7 +20,16 @@ searchBtn.addEventListener("click", async function (event) {
   await populateForecast(city, cityLat, cityLon);
   console.log(localStorage);
   
-});
+ 
+  var searchHistBtn = document.createElement("div");
+  searchHistBtn.setAttribute("class", "searchHistBtn btn btn-info");
+  $(searchHistBtn).text(city);
+  searchHistBtn.addEventListener("click", searchHistBtnClicked);
+  document.getElementById("recently-searched").appendChild(searchHistBtn); 
+
+  }
+  
+);
 
 
 
