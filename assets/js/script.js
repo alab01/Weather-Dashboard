@@ -53,3 +53,47 @@ async function populateCurrentDayWeather(city, cityLat, cityLon) {
   $("#current-humidity").text("Humidty: " + data["current"]["humidity"] + " %");
   $("#current-uv").text("UV Index: " + data["current"]["uvi"]);
 }
+
+async function populateForecast(city, cityLat, cityLon) {
+  var urlWeather = `https://api.openweathermap.org/data/2.5/onecall?lat=${cityLat}&lon=${cityLon}&appid=${weatherKey}`;
+  var response2 = await fetch(urlWeather);
+  var data = await response2.json();
+  var currentDay = moment().format("MM/DD/YYYY");
+  var forecasts = data["daily"];
+  for (var i = 0; i < 5; i++) {
+    var forecast = forecasts[i];
+    var container = document.createElement("div");
+    container.setAttribute("class", "forecast-container col-2");
+    var dt = document.createElement("div");
+    var img = document.createElement("img");
+    var temp = document.createElement("div");
+    var wind = document.createElement("div");
+    var humidity = document.createElement("div");
+
+    dt.setAttribute("class", "fr-dt");
+    img.setAttribute("class", "fr-img");
+    temp.setAttribute("class", "fr-temp");
+    wind.setAttribute("class", "fr-wind");
+    humidity.setAttribute("class", "fr-humidity");
+
+    $(dt).text(city + " (" + currentDay + ")");
+    var imgSrc = forecast["weather"][0]["icon"];
+    $(img).attr("src", "https://openweathermap.org/img/w/" + imgSrc + ".png");
+    $(temp).text(kelvinToF(forecast["temp"]["day"]) + " F");
+    $(wind).text(forecast["wind_speed"] + " MPH");
+    $(humidity).text(forecast["humidity"] + " %");
+
+    container.appendChild(dt);
+    container.appendChild(img);
+    container.appendChild(temp);
+    container.appendChild(wind);
+    container.appendChild(humidity);
+
+    document.getElementById("forecast-main-container").appendChild(container);
+  }
+}
+
+function kelvinToF(kelvin){
+    kelvin = parseFloat(kelvin);
+    return Math.floor(((kelvin - 273.15) * 1.8) + 32);
+}
