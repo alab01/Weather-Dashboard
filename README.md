@@ -6,4 +6,4 @@
 
 ## ![Weather Dashboard Img] (assets/img/weather-dashboard-img.png)
 
-## [Github Live link]:
+## [Github Live link]:  https://alab01.github.io/Weather-Dashboard/
