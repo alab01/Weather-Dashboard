@@ -20,19 +20,29 @@ searchBtn.addEventListener("click", async function (event) {
   await populateForecast(city, cityLat, cityLon);
   console.log(localStorage);
   
- 
-  var searchHistBtn = document.createElement("div");
-  searchHistBtn.setAttribute("class", "searchHistBtn btn btn-info");
-  $(searchHistBtn).text(city);
-  searchHistBtn.addEventListener("click", searchHistBtnClicked);
-  document.getElementById("recently-searched").appendChild(searchHistBtn); 
-
+  if (!localStorage.hasOwnProperty(city.trim().toLowerCase())) {
+    var localStrVal = { lat: cityLat, lon: cityLon };
+    localStorage.setItem(city.trim().toLowerCase(), JSON.stringify(localStrVal));
+    var searchHistBtn = document.createElement("div");
+    searchHistBtn.setAttribute("class", "searchHistBtn btn btn-info");
+    $(searchHistBtn).text(city);
+    searchHistBtn.addEventListener("click", searchHistBtnClicked);
+    document.getElementById("recently-searched").appendChild(searchHistBtn);
+    document.getElementById("recently-searched").appendChild(document.createElement("br"));
   }
   
-);
+});
 
+async function searchHistBtnClicked(event) {
+    var city = event.target.textContent;
+    city = city.trim().toLowerCase();
+    var cityLatLon = JSON.parse(localStorage.getItem(city));
+    await populateCurrentDayWeather(city, cityLatLon["lat"], cityLatLon["lon"]);
+    document.getElementById("forecast-main-container").innerHTML = "";
+    await populateForecast(city, cityLatLon["lat"], cityLatLon["lon"]);
 
-
+}
+async function populateCurrentDayWeather(city, cityLat, cityLon) {
   var urlWeather = `https://api.openweathermap.org/data/2.5/onecall?lat=${cityLat}&lon=${cityLon}&appid=${weatherKey}`;
   var response2 = await fetch(urlWeather);
   var data = await response2.json();
@@ -42,5 +52,4 @@ searchBtn.addEventListener("click", async function (event) {
   $("#current-wind").text("Wind: " + data["current"]["wind_speed"] + " MPH");
   $("#current-humidity").text("Humidty: " + data["current"]["humidity"] + " %");
   $("#current-uv").text("UV Index: " + data["current"]["uvi"]);
-
-
+}
