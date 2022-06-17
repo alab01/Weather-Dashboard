@@ -15,24 +15,30 @@
     </header>
 
     <main>
-        <section class="left-container">
-            <div class="search-container p-2">
-                <h2 class="p-2">Search for a City:</h2> 
-                <input type="text" id="city-input" placeholder="Los Angeles"/>
-                <button id="search-button">Search</button>
+        <div class="row">
+            <div class="col-3">
+                <section class="left-container">
+                    <div class="search-container p-2">
+                        <h2 class="search-title p-2">Search for a City:</h2> 
+                        <input type="text" id="city-input" placeholder="Los Angeles"/>
+                        <button id="search-button">Search</button>
+                    </div>
+                    <div id="recently-searched">
+
+                    </div>
+                </section>
             </div>
-            <div class="recently-searched">
-
-            </div>
-        </section>
-
-        <section class="current-city-container">
-
-        </section>
-
-        <section class="forecast-container">
             
-        </section>
+            <div class="col-9">
+                <section class="current-city-container">
+
+                </section>
+
+                <section id="forecast-main-container" class= "row">
+                    
+                </section>
+            </div>
+        </div>
 
     </main>
 

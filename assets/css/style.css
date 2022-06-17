@@ -1,7 +1,11 @@
 .app-header {
-    background-color: rgb(31, 151, 236);
+    background-color: rgb(16, 130, 212);
     color: white;
     border-radius: 0;
     border-bottom: 1px  rgb(31, 151, 236);
+}
+
+.search-title {
+    font-size: 20px;
 }
 
