@@ -90,9 +90,9 @@ async function populateForecast(city, cityLat, cityLon) {
     $(dt).text("(" + nextDay + ")");
     var imgSrc = forecast["weather"][0]["icon"];
     $(img).attr("src", "https://openweathermap.org/img/w/" + imgSrc + ".png");
-    $(temp).text(kelvinToF(forecast["temp"]["day"]) + " °F");
-    $(wind).text(forecast["wind_speed"] + " MPH");
-    $(humidity).text(forecast["humidity"] + " %");
+    $(temp).text("Temp: " + kelvinToF(forecast["temp"]["day"]) + " °F");
+    $(wind).text("Wind: " + forecast["wind_speed"] + " MPH");
+    $(humidity).text("Humidity: " + forecast["humidity"] + " %");
 
     container.appendChild(dt);
     container.appendChild(img);
