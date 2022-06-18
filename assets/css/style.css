@@ -12,6 +12,7 @@
 .searchHistBtn {
     margin: 2px;
     margin-left: 6px;
+    width: 185px;
 }
 
 .current-city-container {
@@ -19,12 +20,12 @@
     margin-top: 5px;
     line-height: 30px;
     background-color: white;
-    border: 2px solid black;
 }
 
 .current-city {
     font-size: 20px;
     font-weight: bold;
+    text-transform: capitalize;
 }
 
 .forecast-container {
@@ -44,6 +45,11 @@
 }
 
 #search-button {
-    margin: 4px;
+    width: 185px;
+    margin-top: 2px;
     
+}
+
+.forecast-title {
+    display: none;
 }
