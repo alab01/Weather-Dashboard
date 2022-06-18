@@ -58,6 +58,8 @@ async function populateCurrentDayWeather(city, cityLat, cityLon) {
   $("#current-wind").text("Wind: " + data["current"]["wind_speed"] + " MPH");
   $("#current-humidity").text("Humidty: " + data["current"]["humidity"] + " %");
   $("#current-uv").text("UV Index: " + data["current"]["uvi"]);
+  // var currentIconSrc = data["current"]["weather"]["icon"];
+  // $("#condition-icon").attr("src", "https://openweathermap.org/img/w/" + currentIconSrc + ".png");
 }
 
 async function populateForecast(city, cityLat, cityLon) {
