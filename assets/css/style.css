@@ -36,6 +36,12 @@
     margin-left: 14px;
 }
 
+.forecast-title {
+    display: none;
+    font-size: 18px;
+    font-weight: bold;
+}
+
 #current-city,
 #current-temp,
 #current-wind,
@@ -47,9 +53,5 @@
 #search-button {
     width: 185px;
     margin-top: 2px;
-    
 }
 
-.forecast-title {
-    display: none;
-}

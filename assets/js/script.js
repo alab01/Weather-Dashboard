@@ -66,7 +66,7 @@ async function populateForecast(city, cityLat, cityLon) {
   var data = await response2.json();
   var currentDay = moment().format("MM/DD/YYYY");
   var forecasts = data["daily"];
-  $(".forecast-title").css("display", "block");
+  $(".forecast-title").css("display", "block",);
   for (var i = 0; i < 5; i++) {
     var forecast = forecasts[i];
     var container = document.createElement("div");
