@@ -52,8 +52,8 @@ async function populateCurrentDayWeather(city, cityLat, cityLon) {
   var response2 = await fetch(urlWeather);
   var data = await response2.json();
   $(".current-city-container").css("border", "2px solid black");
-  var currentDay = moment().format("MM/DD/YYYY");
-  $("#current-city").text(city + " (" + currentDay + ")");
+  var currentDay = moment().format("MM/DD/YYYY"); 
+  $("#current-city").text(city + " (" + currentDay + ")"); 
   $("#current-temp").text("Temp: " + kelvinToF(data["current"]["temp"]) + " °F");
   $("#current-wind").text("Wind: " + data["current"]["wind_speed"] + " MPH");
   $("#current-humidity").text("Humidty: " + data["current"]["humidity"] + " %");
