@@ -54,7 +54,7 @@ async function populateCurrentDayWeather(city, cityLat, cityLon) {
   $(".current-city-container").css("border", "2px solid black");
   var currentDay = moment().format("MM/DD/YYYY");
   $("#current-city").text(city + " (" + currentDay + ")");
-  $("#current-temp").text("Temp: " + kelvinToF(data["current"]["temp"]) + " F");
+  $("#current-temp").text("Temp: " + kelvinToF(data["current"]["temp"]) + " °F");
   $("#current-wind").text("Wind: " + data["current"]["wind_speed"] + " MPH");
   $("#current-humidity").text("Humidty: " + data["current"]["humidity"] + " %");
   $("#current-uv").text("UV Index: " + data["current"]["uvi"]);
@@ -87,7 +87,7 @@ async function populateForecast(city, cityLat, cityLon) {
     $(dt).text("(" + nextDay + ")");
     var imgSrc = forecast["weather"][0]["icon"];
     $(img).attr("src", "https://openweathermap.org/img/w/" + imgSrc + ".png");
-    $(temp).text(kelvinToF(forecast["temp"]["day"]) + " F");
+    $(temp).text(kelvinToF(forecast["temp"]["day"]) + " °F");
     $(wind).text(forecast["wind_speed"] + " MPH");
     $(humidity).text(forecast["humidity"] + " %");
 
